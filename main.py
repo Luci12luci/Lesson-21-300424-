@@ -47,11 +47,6 @@ def getMember(user_id):
 @app.route('/members', methods=['POST'])
 def registerUser():
     data = request.json
-    first_name = data.get("first_name")
-    last_name = data.get("last_name")
-    email = data.get("email")
-    password = data.get("password")
-
 
     createUser = Members.create_from_request(request)
     return jsonify(createUser.to_dict()), 200
